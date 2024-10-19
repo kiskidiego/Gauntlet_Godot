@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://dc2g3l0p1wav2"]
+
+[ext_resource type="PackedScene" uid="uid://cwyb0n8h2l61d" path="res://Scenes/ResourceScenes/MazeGenerator.tscn" id="1_245xg"]
+[ext_resource type="PackedScene" uid="uid://dh28d6vpl882e" path="res://Scenes/ResourceScenes/MageProtagonist.tscn" id="6_xi4ma"]
+[ext_resource type="Script" path="res://Scripts/Sky.cs" id="7_5tc8x"]
+[ext_resource type="Script" path="res://Scripts/Lights.cs" id="8_wfqxx"]
+
+[sub_resource type="Gradient" id="Gradient_bymuw"]
+offsets = PackedFloat32Array(0, 0.754237, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.890494, 0.803016, 0.636891, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5miid"]
+noise_type = 5
+frequency = 0.048
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u0u4x"]
+color_ramp = SubResource("Gradient_bymuw")
+noise = SubResource("FastNoiseLite_5miid")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a7kse"]
+panorama = SubResource("NoiseTexture2D_u0u4x")
+
+[sub_resource type="Sky" id="Sky_gqfg8"]
+sky_material = SubResource("PanoramaSkyMaterial_a7kse")
+
+[sub_resource type="Environment" id="Environment_bnawt"]
+background_mode = 2
+background_color = Color(0.13138, 0, 0.754207, 1)
+sky = SubResource("Sky_gqfg8")
+sky_rotation = Vector3(0, 1.5708, -1.5708)
+ambient_light_source = 3
+ambient_light_color = Color(0.329621, 0.729487, 0.918344, 1)
+reflected_light_source = 2
+glow_intensity = 1.22
+glow_strength = 1.34
+glow_bloom = 0.08
+fog_light_color = Color(0.431345, 0.465213, 0.518443, 1)
+volumetric_fog_density = 0.0053
+volumetric_fog_albedo = Color(0.638197, 0.847393, 1, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_anisotropy = 0.3
+volumetric_fog_length = 290.36
+volumetric_fog_detail_spread = 6.0
+adjustment_enabled = true
+adjustment_brightness = 0.98
+adjustment_contrast = 1.21
+adjustment_saturation = 0.8
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_j1nvl"]
+
+[node name="MainScene" type="Node3D"]
+process_mode = 1
+
+[node name="MazeGenerator" parent="." instance=ExtResource("1_245xg")]
+mazeSize = 5
+doorProbability = 0.2
+
+[node name="MageProtagonist" parent="." instance=ExtResource("6_xi4ma")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bnawt")
+camera_attributes = SubResource("CameraAttributesPractical_j1nvl")
+script = ExtResource("7_5tc8x")
+rotationSpeed = 0.03
+
+[node name="Lights" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("8_wfqxx")
+rotationSpeed = -0.001
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.67816, 0.734915, 0, -0.257372, 0.237496, 0.936672, 0.688374, -0.635213, 0.350207, 0, 0, 0)
+light_color = Color(0.847474, 0.847474, 0.847474, 1)
+shadow_enabled = true
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.257372, -0.237497, -0.936672, 0.67816, 0.734915, -2.33759e-07, 0.688374, -0.635213, 0.350207, 0, 0, 0)
+light_color = Color(0.435368, 0.717462, 0.999999, 1)
+shadow_opacity = 0.75
+shadow_blur = 0.5
+
+[node name="DirectionalLight3D4" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-0.67816, -0.734915, 2.64597e-07, 0.257372, -0.237497, -0.936672, 0.688374, -0.635213, 0.350207, 0, 0, 0)
+light_color = Color(0.435368, 0.717462, 0.999999, 1)
+shadow_enabled = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-0.257372, 0.237496, 0.936672, -0.67816, -0.734915, -1.07325e-08, 0.688374, -0.635213, 0.350207, 0, 0, 0)
+light_color = Color(0.847474, 0.847474, 0.847474, 1)
+shadow_opacity = 0.75
+shadow_blur = 0.5

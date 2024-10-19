@@ -1,0 +1,432 @@
+[gd_scene load_steps=39 format=3 uid="uid://d1iamlvkbsmhw"]
+
+[ext_resource type="FontFile" uid="uid://b6r1lqebibfph" path="res://Fonts/PublicPixel-rv0pA.ttf" id="1_2o57i"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.cs" id="1_ch4my"]
+
+[sub_resource type="Gradient" id="Gradient_6pdwe"]
+offsets = PackedFloat32Array(0, 0.754237, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.890494, 0.803016, 0.636891, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t3s0v"]
+noise_type = 5
+frequency = 0.0141
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c7n3b"]
+width = 1080
+height = 1080
+color_ramp = SubResource("Gradient_6pdwe")
+noise = SubResource("FastNoiseLite_t3s0v")
+
+[sub_resource type="FontVariation" id="FontVariation_5l6ax"]
+base_font = ExtResource("1_2o57i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5px3w"]
+font = SubResource("FontVariation_5l6ax")
+font_size = 110
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yvaob"]
+content_margin_left = 99.0
+content_margin_right = 99.0
+content_margin_bottom = 20.0
+
+[sub_resource type="Gradient" id="Gradient_4gium"]
+offsets = PackedFloat32Array(0, 0.241176, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.890494, 0.803016, 0.636891, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ntsx3"]
+noise_type = 5
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_keh7u"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_4gium")
+noise = SubResource("FastNoiseLite_ntsx3")
+
+[sub_resource type="Gradient" id="Gradient_32uhu"]
+offsets = PackedFloat32Array(0, 0.241176, 0.822785, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.333444, 0.300688, 0.238483, 1, 0.890494, 0.803016, 0.636891, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_07c3d"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_32uhu")
+noise = SubResource("FastNoiseLite_ntsx3")
+
+[sub_resource type="Gradient" id="Gradient_imb1d"]
+offsets = PackedFloat32Array(0, 0.241176, 0.677215, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.786511, 0.709248, 0.562521, 1, 1, 1, 1, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vue7j"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_imb1d")
+noise = SubResource("FastNoiseLite_ntsx3")
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1txg"]
+font = ExtResource("1_2o57i")
+font_size = 70
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1xlus"]
+noise_type = 5
+seed = 1
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bh7m3"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_4gium")
+noise = SubResource("FastNoiseLite_1xlus")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ml1mv"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_32uhu")
+noise = SubResource("FastNoiseLite_1xlus")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aupic"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_imb1d")
+noise = SubResource("FastNoiseLite_1xlus")
+
+[sub_resource type="Gradient" id="Gradient_qcg88"]
+offsets = PackedFloat32Array(0, 0.241176, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.890494, 0.803016, 0.636891, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_efkx7"]
+noise_type = 5
+seed = 2
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t08up"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_qcg88")
+noise = SubResource("FastNoiseLite_efkx7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ihnhl"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_32uhu")
+noise = SubResource("FastNoiseLite_efkx7")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dvjkq"]
+width = 660
+height = 95
+color_ramp = SubResource("Gradient_imb1d")
+noise = SubResource("FastNoiseLite_efkx7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_tx54o"]
+font = ExtResource("1_2o57i")
+font_size = 70
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jwoad"]
+noise_type = 5
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4hh2s"]
+width = 95
+height = 550
+color_ramp = SubResource("Gradient_4gium")
+noise = SubResource("FastNoiseLite_jwoad")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1wc57"]
+color = Color(0.258924, 0.000106297, 0.294093, 1)
+thickness = 11
+vertical = true
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rmpn6"]
+color = Color(0.658089, 0.109538, 1, 1)
+thickness = 11
+vertical = true
+
+[sub_resource type="Gradient" id="Gradient_bghjr"]
+offsets = PackedFloat32Array(0, 0.241176, 1)
+colors = PackedColorArray(0.0612709, 0, 0.515279, 1, 0, 0, 0, 1, 0.890494, 0.803016, 0.636891, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4ul6r"]
+noise_type = 5
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gf8lh"]
+width = 550
+height = 95
+color_ramp = SubResource("Gradient_bghjr")
+noise = SubResource("FastNoiseLite_4ul6r")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_56x35"]
+noise_type = 5
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mqq7v"]
+width = 550
+height = 95
+color_ramp = SubResource("Gradient_32uhu")
+noise = SubResource("FastNoiseLite_56x35")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b158m"]
+noise_type = 5
+frequency = 0.0183
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.75
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0pvr0"]
+width = 550
+height = 95
+color_ramp = SubResource("Gradient_imb1d")
+noise = SubResource("FastNoiseLite_b158m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wkxle"]
+font = ExtResource("1_2o57i")
+font_size = 35
+
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("pauseMenu", "optionsMenu", "seedLabel", "sfxSlider", "musicSlider")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 420.0
+offset_right = 420.0
+script = ExtResource("1_ch4my")
+pauseMenu = NodePath("TextureRect/CenterContainer/MainMenu")
+optionsMenu = NodePath("TextureRect/CenterContainer/SettingsMenu")
+seedLabel = NodePath("TextureRect/CenterContainer/SettingsMenu/Label")
+sfxSlider = NodePath("TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/SfxVSlider")
+musicSlider = NodePath("TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/MusicVSlider")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+texture = SubResource("NoiseTexture2D_c7n3b")
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="TextureRect/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 110
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer/MainMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_5px3w")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 180
+
+[node name="CenterContainer" type="CenterContainer" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yvaob")
+
+[node name="Button" type="TextureButton" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+texture_normal = SubResource("NoiseTexture2D_keh7u")
+texture_pressed = SubResource("NoiseTexture2D_07c3d")
+texture_hover = SubResource("NoiseTexture2D_vue7j")
+
+[node name="Label2" type="Label" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_f1txg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yvaob")
+
+[node name="Button" type="TextureButton" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("NoiseTexture2D_bh7m3")
+texture_pressed = SubResource("NoiseTexture2D_ml1mv")
+texture_hover = SubResource("NoiseTexture2D_aupic")
+
+[node name="Label2" type="Label" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_f1txg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yvaob")
+
+[node name="Button" type="TextureButton" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = SubResource("NoiseTexture2D_t08up")
+texture_pressed = SubResource("NoiseTexture2D_ihnhl")
+texture_hover = SubResource("NoiseTexture2D_dvjkq")
+
+[node name="Label2" type="Label" parent="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+text = "Main Menu"
+label_settings = SubResource("LabelSettings_f1txg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsMenu" type="VBoxContainer" parent="TextureRect/CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_constants/separation = 135
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 590
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_tx54o")
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("NoiseTexture2D_4hh2s")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="MusicVSlider" type="VSlider" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_1wc57")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rmpn6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rmpn6")
+min_value = -80.0
+max_value = 0.0
+value = -40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "SFX
+"
+label_settings = SubResource("LabelSettings_tx54o")
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("NoiseTexture2D_4hh2s")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_bottom = 35
+
+[node name="SfxVSlider" type="VSlider" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/slider = SubResource("StyleBoxLine_1wc57")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_rmpn6")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_rmpn6")
+min_value = -80.0
+max_value = 0.0
+value = -40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/CenterContainer/SettingsMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = 590
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/CenterContainer/SettingsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/CenterContainer/SettingsMenu/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("NoiseTexture2D_gf8lh")
+texture_pressed = SubResource("NoiseTexture2D_mqq7v")
+texture_hover = SubResource("NoiseTexture2D_0pvr0")
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/SettingsMenu/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return"
+label_settings = SubResource("LabelSettings_tx54o")
+
+[node name="Label" type="Label" parent="TextureRect/CenterContainer/SettingsMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Seed: "
+label_settings = SubResource("LabelSettings_wkxle")
+
+[connection signal="button_up" from="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer/Button" to="." method="OnResume"]
+[connection signal="button_up" from="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer2/Button" to="." method="OptionsButtonPressed"]
+[connection signal="button_up" from="TextureRect/CenterContainer/MainMenu/VBoxContainer/MarginContainer2/CenterContainer/VBoxContainer/PanelContainer3/Button" to="." method="OnQuitToMain"]
+[connection signal="drag_ended" from="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/MusicVSlider" to="." method="PlaySound"]
+[connection signal="value_changed" from="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/MusicVSlider" to="." method="MusicVolumeChanged"]
+[connection signal="drag_ended" from="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/SfxVSlider" to="." method="PlaySound"]
+[connection signal="value_changed" from="TextureRect/CenterContainer/SettingsMenu/HBoxContainer/VBoxContainer2/PanelContainer/MarginContainer/SfxVSlider" to="." method="SFXVolumeChanged"]
+[connection signal="button_up" from="TextureRect/CenterContainer/SettingsMenu/PanelContainer/TextureButton" to="." method="BackButtonPressed"]

@@ -1,0 +1,203 @@
+[gd_scene load_steps=17 format=3 uid="uid://dh28d6vpl882e"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterController.cs" id="1_rd7lh"]
+[ext_resource type="PackedScene" uid="uid://b78kgmoj8jxx4" path="res://Scenes/ResourceScenes/BlenderScenes/Mage.blend" id="2_p7bl2"]
+[ext_resource type="PackedScene" uid="uid://d2287at1wq33t" path="res://Scenes/ResourceScenes/MageProjectile.tscn" id="2_pqox8"]
+[ext_resource type="PackedScene" uid="uid://d4xrrm6jye33" path="res://Scenes/ResourceScenes/Enemy.tscn" id="4_r5eag"]
+[ext_resource type="PackedScene" uid="uid://4s8tlvaei6uq" path="res://Scenes/ResourceScenes/Potion.tscn" id="5_jl085"]
+[ext_resource type="PackedScene" uid="uid://dal26exdclrei" path="res://Scenes/ResourceScenes/Chest.tscn" id="6_hn8ee"]
+[ext_resource type="PackedScene" uid="uid://ndruhygfbece" path="res://Scenes/ResourceScenes/Spikes.tscn" id="7_ksd7p"]
+[ext_resource type="PackedScene" uid="uid://clngdc7nopcvb" path="res://Scenes/ResourceScenes/Spawner.tscn" id="7_oq8hm"]
+[ext_resource type="PackedScene" uid="uid://d1iamlvkbsmhw" path="res://Scenes/ResourceScenes/PauseMenu.tscn" id="8_ig4ex"]
+[ext_resource type="FontFile" uid="uid://b6r1lqebibfph" path="res://Fonts/PublicPixel-rv0pA.ttf" id="9_twakp"]
+[ext_resource type="Script" path="res://Scripts/TextResize.cs" id="10_06gvu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v6fh5"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xiywo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sii53"]
+font = ExtResource("9_twakp")
+font_size = 49
+
+[sub_resource type="LabelSettings" id="LabelSettings_kjx18"]
+font = ExtResource("9_twakp")
+font_size = 111
+
+[sub_resource type="LabelSettings" id="LabelSettings_aiqc6"]
+font = ExtResource("9_twakp")
+font_size = 111
+
+[node name="MageProtagonist" type="CharacterBody3D" node_paths=PackedStringArray("damageTimer", "blinkTimer", "attackTimer", "healthLabel", "scoreLabel", "keyLabel", "levelLabel") groups=["player"]]
+collision_layer = 2
+collision_mask = 103
+script = ExtResource("1_rd7lh")
+damageTimer = NodePath("DamageTimer")
+blinkTimer = NodePath("BlinkTimer")
+attackTimer = NodePath("AttackTimer")
+bullet = ExtResource("2_pqox8")
+entities = Array[PackedScene]([ExtResource("6_hn8ee"), ExtResource("4_r5eag"), ExtResource("5_jl085"), ExtResource("7_ksd7p"), ExtResource("7_oq8hm")])
+healthLabel = NodePath("Hud/Panel/MarginContainer/VBoxContainer/HealthLabel")
+scoreLabel = NodePath("Hud/Panel2/MarginContainer/VBoxContainer/ScoreLabel")
+keyLabel = NodePath("Hud/Panel/MarginContainer/VBoxContainer/KeyLabel")
+levelLabel = NodePath("Hud/Panel2/MarginContainer/VBoxContainer/LevelLabel")
+pauseMenu = ExtResource("8_ig4ex")
+
+[node name="Mage" parent="." instance=ExtResource("2_p7bl2")]
+
+[node name="Skeleton3D" parent="Mage/ProtagonistArmature" index="0"]
+bones/0/position = Vector3(0, 0.637744, 0)
+bones/1/rotation = Quaternion(0, -0.00100149, 0, 1)
+bones/2/position = Vector3(-0.348226, 0.283262, -8.31098e-08)
+bones/2/rotation = Quaternion(-0.695597, 0.0837072, 0.702135, 0.127065)
+bones/3/rotation = Quaternion(-0.0636725, 0.00696459, 0.0239343, 0.99766)
+bones/5/position = Vector3(0.348252, 0.283262, 8.29435e-08)
+bones/5/rotation = Quaternion(0.703833, 0.0996471, 0.70005, -0.0679584)
+bones/6/rotation = Quaternion(-0.0288801, -0.041844, -0.00684703, 0.998683)
+bones/8/rotation = Quaternion(0.99963, -2.8299e-09, 1.17947e-07, 0.0271943)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.0405403, -4.07412e-07, 5.16592e-07, 0.999178)
+bones/10/rotation = Quaternion(0.999999, -9.05185e-09, 1.18865e-07, 0.00104249)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.024272, -1.0119e-07, 6.69293e-08, 0.999705)
+
+[node name="AnimationPlayer" parent="Mage" index="1"]
+playback_default_blend_time = 0.1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_v6fh5")
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(4.315, 0, 0, 0, 1.54636, 4.0284, 0, -4.0284, 1.54636, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.834216, 0.641052, 1, 1)
+light_energy = 0.5
+omni_range = 1.0
+
+[node name="Hud" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="Hud"]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xiywo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Hud/Panel"]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Health" type="Label" parent="Hud/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health:"
+label_settings = SubResource("LabelSettings_sii53")
+vertical_alignment = 1
+
+[node name="HealthLabel" type="Label" parent="Hud/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "600"
+label_settings = SubResource("LabelSettings_kjx18")
+script = ExtResource("10_06gvu")
+
+[node name="Keys" type="Label" parent="Hud/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Keys:"
+label_settings = SubResource("LabelSettings_sii53")
+vertical_alignment = 1
+
+[node name="KeyLabel" type="Label" parent="Hud/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_kjx18")
+script = ExtResource("10_06gvu")
+
+[node name="Panel2" type="Panel" parent="Hud"]
+layout_mode = 1
+offset_left = 1500.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xiywo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Hud/Panel2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_bottom = 1080.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 250
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Panel2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="Score" type="Label" parent="Hud/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_sii53")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Hud/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "0"
+label_settings = SubResource("LabelSettings_aiqc6")
+horizontal_alignment = 2
+script = ExtResource("10_06gvu")
+
+[node name="Level" type="Label" parent="Hud/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level:"
+label_settings = SubResource("LabelSettings_sii53")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="Hud/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_kjx18")
+horizontal_alignment = 2
+script = ExtResource("10_06gvu")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true
+
+[connection signal="animation_finished" from="Mage/AnimationPlayer" to="." method="AnimationFinished"]
+[connection signal="timeout" from="DamageTimer" to="." method="DamageTimerTimeout"]
+[connection signal="timeout" from="BlinkTimer" to="." method="Blink"]
+[connection signal="timeout" from="AttackTimer" to="." method="CanShoot"]
+
+[editable path="Mage"]
