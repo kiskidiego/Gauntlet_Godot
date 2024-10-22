@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ga25jq18i14"]
+
+[ext_resource type="PackedScene" uid="uid://bm4swu25yh7ht" path="res://Scenes/ResourceScenes/BlenderScenes/Stairs.blend" id="1_ey3ja"]
+[ext_resource type="Script" path="res://Scripts/Stairs.cs" id="1_ksjpc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yd3a0"]
+size = Vector3(0.8, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_ksjpc")
+
+[node name="StaticBody3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.9)
+shape = SubResource("BoxShape3D_yd3a0")
+
+[node name="Stairs2" parent="." instance=ExtResource("1_ey3ja")]
+
+[connection signal="body_entered" from="StaticBody3D" to="." method="BodyEntered"]

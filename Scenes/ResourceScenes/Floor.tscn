@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0x1iw3h1vxb7"]
+
+[ext_resource type="PackedScene" uid="uid://hl6u6r850are" path="res://Scenes/ResourceScenes/BlenderScenes/FloorTile1.blend" id="1_c8qgc"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="FloorTile1" parent="." instance=ExtResource("1_c8qgc")]

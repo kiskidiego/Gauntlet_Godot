@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dktmnv8rcbdub"]
+
+[ext_resource type="Script" path="res://Scripts/Key.cs" id="1_6rpr4"]
+[ext_resource type="PackedScene" uid="uid://b0r77b8q70f6v" path="res://Scenes/ResourceScenes/BlenderScenes/Key.blend" id="2_dfnd6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8vme2"]
+radius = 0.1
+height = 0.5
+
+[node name="Key" type="Node3D" node_paths=PackedStringArray("model")]
+script = ExtResource("1_6rpr4")
+model = NodePath("Node3D")
+rotationSpeedMultiplier = 0.05
+
+[node name="KeyArea3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_8vme2")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Key2" parent="Node3D" instance=ExtResource("2_dfnd6")]
+transform = Transform3D(0.975642, -0.212173, 0.055726, 0.219369, 0.943638, -0.24784, 0, 0.254028, 0.967197, 0.0509006, 0.271587, -0.0370775)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, -1.86265e-09, 0, 1.86265e-09, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.935454, 0.989987, 0.00185592, 1)
+light_energy = 0.5
+light_specular = 1.0
+omni_range = 1.0
+
+[connection signal="body_entered" from="KeyArea3D" to="." method="BodyEntered"]
